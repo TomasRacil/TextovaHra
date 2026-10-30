@@ -68,14 +68,13 @@ class Player:
     def is_alive(self) -> bool:
 
         if not isinstance(self.hp, int):
-            raise NotImplementedError()
+           
             return False
         if(self.hp>0):
-            
             return True
         else: 
-            
-            return False
+            return False 
+           
 
     def take(self, item: Item) -> None:
         """Přesune předmět do batohu."""
