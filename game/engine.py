@@ -66,8 +66,16 @@ class Player:
     max_hp: int = 100
 
     def is_alive(self) -> bool:
-        """True, dokud hráč nezemřel."""
-        raise NotImplementedError("Player.is_alive")
+
+        if not isinstance(self.hp, int):
+            raise NotImplementedError()
+            return False
+        if(self.hp>0):
+            
+            return True
+        else: 
+            
+            return False
 
     def take(self, item: Item) -> None:
         """Přesune předmět do batohu."""
@@ -78,8 +86,14 @@ class Player:
         raise NotImplementedError("Player.drop")
 
     def damage(self, amount: int) -> None:
+        if amount<0:
+            amount = 0
+        self.hp -=amount
+        if self.hp<0:
+            self.hp = 0
+        
         """Ubere zdraví (ne pod nulu)."""
-        raise NotImplementedError("Player.damage")
+        
 
     def heal(self, amount: int) -> None:
         """Přidá zdraví (maximálně do max_hp)."""
