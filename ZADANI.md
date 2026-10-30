@@ -32,6 +32,10 @@ Po hodině umíte:
 4. napsat třídu s metodami, stavem a testy, které její chování ověřují,
 5. rozdělit práci tak, aby si 23 lidí nesedlo na jeden soubor.
 
+**Poznámka ke zkoušce:** zkouška je z Pythonu – konkrétně z OOP (třídy, dědičnost, práce
+s objekty). Git a GitHub jsou nad její rámec. Tuhle hodinu ber jako dovednost navíc: třídy
+si tu procvičíš na skutečném kódu, ale PR, review a ochrana `main` se u zkoušky neobjeví.
+
 ---
 
 ## 3. Povinné jádro (MVP) – tohle musí hra umět na konci hodiny
