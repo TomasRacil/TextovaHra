@@ -78,11 +78,16 @@ class Player:
 
     def take(self, item: Item) -> None:
         """Přesune předmět do batohu."""
-        raise NotImplementedError("Player.take")
+        self.inventory.append(item)
 
     def drop(self, name: str) -> Item | None:
         """Vyndá předmět z batohu podle jména; None = nemá ho."""
-        raise NotImplementedError("Player.drop")
+        for i in self.inventory:
+            if i.description == name:
+                self.inventory.pop(i)
+                return i
+        return None
+            
 
     def damage(self, amount: int) -> None:
         if amount<0:
@@ -96,7 +101,10 @@ class Player:
 
     def heal(self, amount: int) -> None:
         """Přidá zdraví (maximálně do max_hp)."""
-        raise NotImplementedError("Player.heal")
+        if self.hp+amount>=self.max_hp:
+            self.hp = self.max_hp
+        elif self.hp + amount < self.max_hp:
+            self.hp+=amount
 
 
 @dataclass
