@@ -1,11 +1,26 @@
 # Seznam GitHub loginů spolupracovníků – jeden na řádek.
 # Řádky začínající # jsou komentář, prázdné řádky se ignorují.
-#
-# Příklad:
-#   jan-novak
-#   petra.svobodova
-#   tomas-horak   # tým 2, reviewer
+# Login je převzatý z URL jejich repozitáře (github.com/<login>/<repo>).
 #
 # Po vyplnění spusť:  bash scripts/invite_contributors.sh
 # (nejdřív zkontroluj náhled: bash scripts/invite_contributors.sh --dry-run)
 
+# --- 18 účtů z odevzdaných repozitářů -----------------------------------------
+anezkasolarova-web       # Anežka Solarová – Aplikace centra vodních sportů
+prusovasasa-arch         # Alexandra Průšová – Predikce tempa podle profilu trati
+Sk1toslav                # Petr Šesták – PyCrawler
+frantodoom               # Ondra František – Scanner
+Dave230-cpu              # David Kazda – Počasí (WeatherApp)
+ondrasyslo-ux            # Ondrej Syslo – Analyzátor telemetrie dronů
+josefjenista59-glitch    # Josef Jeništa – Šachy
+GranatyNaRukou           # Petr Vávra – Kontrola a analýza obsahu souborů
+matthew2233              # Matěj Kokoška – Síťová IPv4 kalkulačka
+mala2nn                  # Anna Maloušková – Vizualizátor bludišť
+blaziter                 # Petr Tran – REST API pro správu rezervací
+jijuyong                 # Vu Thi Lan Huong – HandTracker
+cabrnochjan              # Jan Cabrnoch – AI pomocník
+Witekexe                 # Vít Čavojský – Pásové průzkumné vozidlo
+pajatomsa                # Pavel Tomšík – Terminálový monitor systému
+vojtasek382-create       # Vojtěch Kuchejda – Sledovač počasí a doporučení
+SilvieSavova             # Silvie Sávová – Generátor hesel a analyzátor entropie
+dmnkgdn                  # Dominik Gedeon – Terminálová aplikace na šifrované zprávy
