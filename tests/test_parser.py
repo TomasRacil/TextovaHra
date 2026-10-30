@@ -26,6 +26,13 @@ class TestParser(unittest.TestCase):
     def test_whitespace_is_ignored(self) -> None:
         self.assertEqual(self.game.handle("  rozhledni  "), self.game.handle("rozhledni"))
 
+    def test_rozhledni_vypise_spravny_text(self) -> None:
+        vysledek = self.game.handle("rozhledni")
+        
+        self.assertIn("==", vysledek)
+        self.assertIn("Východy:", vysledek)
+        self.assertIn("Předměty:", vysledek)
+
     def test_argument_is_passed_to_command(self) -> None:
         # Příkaz 'jdi sever' musí dostat argument 'sever'.
         output = self.game.handle("jdi sever")
