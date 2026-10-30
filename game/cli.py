@@ -10,9 +10,7 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-from game.systems.combat import boj
-
-from .engine import Game, Player, World
+from .engine import Game, World
 from .registry import load_commands
 
 DATA_FILE = Path(__file__).parent / "data" / "world.json"
@@ -26,10 +24,6 @@ def build_game(data_file: Path = DATA_FILE) -> Game:
 
 def main(argv: list[str] | None = None) -> int:
     game = build_game()
-
-    """ Příklad volání combat sys - tester = Player(name="Hráč")
-    boj(tester, Monster=Player(name="Monstrum"))
-    print(tester.dmg)"""
 
     print("=" * 60)
     print("TEXTOVÁ HRA")

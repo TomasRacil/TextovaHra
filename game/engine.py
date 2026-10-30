@@ -20,6 +20,8 @@ import json
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from game.systems.combat import boj
+
 
 @dataclass
 class Item:
@@ -128,6 +130,11 @@ class Game:
     player: Player = field(default_factory=Player)
     finished: bool = False
     turn: int = 0
+
+    """ Příklad volání combat sys - tester = Player(name="Hráč")
+    boj(player, Monster=Player(name="Monstrum"))
+    print(player.dmg)
+    """
 
     def __post_init__(self) -> None:
         # Hráč začíná tam, kde to říká svět.
