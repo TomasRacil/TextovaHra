@@ -24,3 +24,11 @@ pajatomsa                # Pavel Tomšík – Terminálový monitor systému
 vojtasek382-create       # Vojtěch Kuchejda – Sledovač počasí a doporučení
 SilvieSavova             # Silvie Sávová – Generátor hesel a analyzátor entropie
 dmnkgdn                  # Dominik Gedeon – Terminálová aplikace na šifrované zprávy
+
+# --- doplněno (5) -------------------------------------------------------------
+ivarigoulet              # Iva Rigouletová – Vědomostní hra (kvíz)
+lukas-gazdik             # Lukáš Gazdík – Analýza bezpečnosti hesel
+Mlemosaurus              # Richard Hruška – Správce hesel (AES-256)
+jendqq                   # Jan Radovan Koverdynský – Chess bot (minimax)
+Adamoclev                # Adam Vaňhara – Nízko frekvenční radar (LD2450)
+
