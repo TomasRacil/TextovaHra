@@ -30,10 +30,10 @@ existing_id="$(gh api "repos/$REPO/rulesets" --jq '.[] | select(.name=="main-pro
 
 if [ -n "$existing_id" ]; then
   echo "Pravidlo existuje (id $existing_id), aktualizuji."
-  gh api -X PUT "repos/$REPO/rulesets/$existing_id" --input "$RULESET_FILE" >/dev/null
+  gh api -X PUT "repos/$REPO/rulesets/$existing_id" --input - < "$RULESET_FILE" >/dev/null
 else
   echo "Vytvářím pravidlo main-protection."
-  gh api -X POST "repos/$REPO/rulesets" --input "$RULESET_FILE" >/dev/null
+  gh api -X POST "repos/$REPO/rulesets" --input - < "$RULESET_FILE" >/dev/null
 fi
 
 gh api "repos/$REPO/rulesets" --jq '.[] | "  \(.name): \(.enforcement)"'

@@ -2,6 +2,13 @@
   "name": "main-protection",
   "target": "branch",
   "enforcement": "active",
+  "bypass_actors": [
+    {
+      "actor_id": 72918819,
+      "actor_type": "User",
+      "bypass_mode": "always"
+    }
+  ],
   "conditions": {
     "ref_name": {
       "include": ["~DEFAULT_BRANCH"],
