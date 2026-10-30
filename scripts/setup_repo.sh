@@ -69,4 +69,4 @@ make_label "tým 6"             "006b75" "Ukládání, UI, dokumentace"
 echo
 echo "== Hotovo =="
 echo "Zkontroluj v nastavení repozitáře: Settings → Rules → Rulesets."
-echo "Dále: bash scripts/invite_students.sh  (potřebuje vyplněný students.txt)"
+echo "Dále: bash scripts/invite_contributors.sh  (potřebuje vyplněný contributors.txt)"

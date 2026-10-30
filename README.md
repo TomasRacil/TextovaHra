@@ -43,12 +43,25 @@ game/
   data/
     world.json       mapa světa (místnosti, východy, předměty)
 tests/               testy; test_smoke.py musí procházet vždy
-.github/             CI, šablony issue a PR, CODEOWNERS
-scripts/             nastavení repozitáře a pozvánky studentů
-docs/                architektura a průvodce pro učitele
+.github/             CI, release, šablony issue a PR, CODEOWNERS
+scripts/             nastavení repozitáře, pozvánky, naplnění boardu
+docs/                koncepty, architektura, board a release, průvodce majitele
+pyproject.toml       balíček a příkaz `textovka` (release)
+contributors.txt     seznam GitHub loginů spolupracovníků
 ZADANI.md            co máte odevzdat a jak jste hodnoceni
 CONTRIBUTING.md      podrobný návod na pull requesty a review
 ```
+
+**Kde co hledat:**
+
+| Potřebuješ… | Dokument |
+|---|---|
+| vědět, co mám udělat | [`ZADANI.md`](ZADANI.md) |
+| naučit se PR cyklus | [`CONTRIBUTING.md`](CONTRIBUTING.md) |
+| pochopit `dataclass`, dekorátory, `self` | [`docs/KONCEPTY.md`](docs/KONCEPTY.md) |
+| vědět, co mám dělat právě teď | [board projektu](https://github.com/users/TomasRacil/projects/3) |
+| jak funguje kód | [`docs/ARCHITEKTURA.md`](docs/ARCHITEKTURA.md) |
+| co je board a release | [`docs/PROJEKTY_A_RELEASE.md`](docs/PROJEKTY_A_RELEASE.md) |
 
 ---
 
@@ -67,7 +80,9 @@ Podrobněji v [`docs/ARCHITEKTURA.md`](docs/ARCHITEKTURA.md).
 ## Jak přispívat (pull requesty)
 
 **Nikdy nepushuj přímo do `main`.** Větev `main` je chráněná a push do ní GitHub odmítne.
-Všechno jde přes pull request. Tohle je celý cyklus:
+Všechno jde přes pull request. Nejdřív si ale vyber práci na [boardu](https://github.com/users/TomasRacil/projects/3)
+(viz [`docs/PROJEKTY_A_RELEASE.md`](docs/PROJEKTY_A_RELEASE.md)) – teprve pak vzniká větev.
+Tohle je celý cyklus:
 
 ```bash
 # 1. Aktuální main
@@ -155,11 +170,16 @@ python -m unittest tests.test_movement.TestMovement.test_move_to_neighbour_room 
 
 ---
 
-## Pro učitele
+## Pro učitele (majitele repozitáře)
 
-Nastavení repozitáře (pravidla větve, štítky, pozvánky), časový plán 180 minut
-a hodnoticí rubrika jsou v [`docs/PRUVODCE_UCITELE.md`](docs/PRUVODCE_UCITELE.md).
-Skripty: `scripts/setup_repo.sh`, `scripts/invite_students.sh`.
+Všechno k postavení a vedení repozitáře je v [`docs/PRUVODCE_MAJITELE.md`](docs/PRUVODCE_MAJITELE.md):
+jak repo založit od nuly, nastavit ochranu `main`, CI, štítky a pozvánky, časový plán
+180 minut, triage 23 PR, hodnocení a údržba pro další ročník.
+
+Skripty: `scripts/setup_repo.sh` (pravidla + štítky), `scripts/invite_contributors.sh`
+(pozvánky ze `contributors.txt`), `scripts/seed_backlog.sh` (naplní board).
+
+Board a release: [`docs/PROJEKTY_A_RELEASE.md`](docs/PROJEKTY_A_RELEASE.md).
 
 ---
 

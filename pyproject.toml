@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "textovka"
+description = "Textová hra – týmový projekt pro výuku práce s GitHubem a OOP v Pythonu"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Tomas Rácil a studenti" }]
+keywords = ["text game", "education", "python", "oop"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Environment :: Console",
+  "Topic :: Games/Entertainment",
+]
+# Verze je jen na jednom místě – v game/__init__.py (__version__).
+dynamic = ["version"]
+dependencies = []          # záměrně: jen standardní knihovna
+
+[project.scripts]
+textovka = "game.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/TomasRacil/TextovaHra"
+
+[tool.setuptools]
+packages = ["game", "game.commands", "game.systems"]
+
+[tool.setuptools.package-data]
+# Bez tohoto by se world.json do balíčku nedostal a hra by po instalaci nenašla svět.
+game = ["data/*.json"]
+
+[tool.setuptools.dynamic]
+version = { attr = "game.__version__" }

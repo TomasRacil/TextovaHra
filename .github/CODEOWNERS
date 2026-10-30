@@ -6,6 +6,8 @@
 /.github/            @TomasRacil
 /ZADANI.md           @TomasRacil
 /CONTRIBUTING.md     @TomasRacil
+/pyproject.toml      @TomasRacil
+/scripts/            @TomasRacil
 
 # Sdílené jádro hry – mění se jen po domluvě s projekt leadem
 /game/engine.py      @TomasRacil

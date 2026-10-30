@@ -1,0 +1,67 @@
+name: release
+
+# Spustí se až při pushi tagu, např.:
+#   git tag -a v0.1.0 -m "Hratelná verze"
+#   git push origin v0.1.0
+#
+# Co udělá:
+#   1. pustí testy (bez zelených testů žádný release),
+#   2. zkontroluje, že tag odpovídá verzi v game/__init__.py,
+#   3. sestaví balíček (wheel + sdist) přes python -m build,
+#   4. nainstaluje wheel a spustí hru – důkaz, že balíček opravdu funguje,
+#   5. vytvoří GitHub Release s automaticky psanými poznámkami a přiloží balíčky.
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write      # potřeba pro vytvoření release
+
+jobs:
+  release:
+    name: release
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0     # kvůli poznámkám z historie
+
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Testy (bez nich se nic nevydává)
+        run: python -m unittest discover -s tests -t . -v
+
+      - name: Tag odpovídá verzi v game/__init__.py
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          ver="$(python -c 'import game; print(game.__version__)')"
+          echo "tag=$tag  verze=$ver"
+          if [ "$tag" != "$ver" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME neodpovídá __version__ = $ver v game/__init__.py"
+            exit 1
+          fi
+
+      - name: Sestavení balíčku
+        run: |
+          python -m pip install --upgrade build
+          python -m build
+
+      - name: Balíček se nainstaluje a hra běží
+        run: |
+          python -m pip install dist/*.whl
+          printf 'rozhledni\nkonec\n' | textovka
+
+      - name: Vytvoření release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/* \
+            --title "$GITHUB_REF_NAME" \
+            --generate-notes

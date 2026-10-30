@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
-# Pozve studenty ze souboru students.txt jako spolupracovníky (právo push).
+# Pozve spolupracovníky ze souboru contributors.txt (právo push).
 #
 # Použití:
-#   bash scripts/invite_students.sh                 # aktuální repo
-#   bash scripts/invite_students.sh OWNER/REPO
-#   bash scripts/invite_students.sh --dry-run       # jen vypíše, co by udělal
+#   bash scripts/invite_contributors.sh                 # aktuální repo
+#   bash scripts/invite_contributors.sh OWNER/REPO
+#   bash scripts/invite_contributors.sh --dry-run       # jen vypíše, co by udělal
 #
-# Formát students.txt: jeden GitHub login na řádek, # = komentář.
-# Pozvánku musí student přijmout (e-mailem nebo na github.com/notifications),
+# Formát contributors.txt: jeden GitHub login na řádek, # = komentář.
+# Pozvánku musí člověk přijmout (e-mailem nebo na github.com/notifications),
 # jinak nemůže pushovat.
 
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LIST="$HERE/../students.txt"
+LIST="$HERE/../contributors.txt"
 DRY_RUN=0
 REPO=""
 

@@ -1,7 +1,9 @@
 # Zadání: Textová hra (týmový projekt, 180 minut)
 
 > Tento dokument je zadání pro studenty. Učitelská verze (nastavení repa, facilitace,
-> rubrika) je v [`docs/PRUVODCE_UCITELE.md`](docs/PRUVODCE_UCITELE.md).
+> rubrika) je v [`docs/PRUVODCE_MAJITELE.md`](docs/PRUVODCE_MAJITELE.md).
+> Nerozumíš `dataclass`, dekorátorům nebo `self`? Přečti [`docs/KONCEPTY.md`](docs/KONCEPTY.md).
+> Board a release: [`docs/PROJEKTY_A_RELEASE.md`](docs/PROJEKTY_A_RELEASE.md).
 
 ---
 
@@ -92,6 +94,21 @@ Většinou to jde obejít: nový soubor v `game/commands/` nebo `game/systems/`.
 - **Reviewer** – v každém týmu jeden; recenzuje PR z *jiného* týmu (nikdy vlastní).
 - **Tester** – v každém týmu jeden; na konci hraje hru jako hráč a zakládá issues na chyby.
 - **Učitel** – poslední instance, ne první. Nejdřív se ptejte leada a týmu.
+
+### Kde je vidět, kdo co dělá: board
+
+Práce není „v hlavě“, je na [boardu projektu](https://github.com/users/TomasRacil/projects/3).
+Sloupce: **Backlog → Připraveno → Dělám → Ke kontrole → Hotovo**.
+
+1. Vyber si položku z **Backlogu** (dvanáct jich tam je předpřipravených).
+2. Převeď ji na issue a **přiřaď si ji** – tím je zamčená, nikdo jiný na ní nepracuje.
+3. Přesuň do **Dělám**, když zakládáš větev. Do **Ke kontrole**, když otevřeš PR.
+4. **Hotovo** = sloučeno do `main` (většinou to udělá automatizace).
+
+Pravidlo: **stav na boardu se mění ve chvíli, kdy se změní realita.** Board, který lže,
+je horší než žádný. Kdo na boardu nic nemá, na ničem nepracuje – a je to vidět.
+
+Jak board a release fungují a proč, je v [`docs/PROJEKTY_A_RELEASE.md`](docs/PROJEKTY_A_RELEASE.md).
 
 ---
 
