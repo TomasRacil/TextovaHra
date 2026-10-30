@@ -66,11 +66,8 @@ class Player:
     max_hp: int = 100
 
     def is_alive(self) -> bool:
-
-        if not isinstance(self.hp, int):
-           
-            return False
-        if(self.hp>0):
+        """True, dokud hráč nezemřel."""
+        if self.hp>0:
             return True
         else: 
             return False 
@@ -82,21 +79,25 @@ class Player:
 
     def drop(self, name: str) -> Item | None:
         """Vyndá předmět z batohu podle jména; None = nemá ho."""
+        if not self.inventory:
+            return None
+
         for i in self.inventory:
-            if i.description == name:
-                self.inventory.pop(i)
+            if i.name == name:
+                self.inventory.remove(i)
                 return i
         return None
             
 
     def damage(self, amount: int) -> None:
+        """Ubere zdraví (ne pod nulu)."""
         if amount<0:
             amount = 0
         self.hp -=amount
         if self.hp<0:
             self.hp = 0
         
-        """Ubere zdraví (ne pod nulu)."""
+        
         
 
     def heal(self, amount: int) -> None:
