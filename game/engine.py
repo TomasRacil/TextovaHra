@@ -85,6 +85,61 @@ class Player:
         """Přidá zdraví (maximálně do max_hp)."""
         raise NotImplementedError("Player.heal")
 
+@dataclass
+class Monster:
+    """Monstrum – jeho stav, batoh a poloha."""
+
+    name: str = "Hráč"
+    room_key: str = "start"
+    inventory: list[Item] = field(default_factory=list)
+    hp: int = 100
+    max_hp: int = 100
+    dmg: int = 10
+
+    def is_alive(self) -> bool:
+        """True, dokud monstrum nezemřel."""
+        if self.hp > 0:
+            return True
+        else:
+            return False
+        #raise NotImplementedError("Player.is_alive")
+
+    def take(self, item: Item) -> None:
+        """Přesune předmět do batohu."""
+        if item is not None:
+            self.inventory.append(item)
+        else:
+            raise ValueError("Item is None")
+        #raise NotImplementedError("Player.take")
+
+    def drop(self, name: str) -> Item | None:
+        """Vyndá předmět z batohu podle jména; None = nemá ho."""
+        for i, item in enumerate(self.inventory):
+            if item.name == name:
+                return self.inventory.pop(i)
+        return None
+        #raise NotImplementedError("Monster.drop")
+
+    def damage(self, amount: int) -> None:
+        """Ubere zdraví (ne pod nulu)."""
+        if amount < 0 or not self.is_alive():
+            raise ValueError("Damage amount cannot be negative, and monster must be alive to take damage.")
+        elif self.hp - amount < 0:
+            self.hp = 0
+        else:
+            self.hp -= amount
+        #raise NotImplementedError("Monster.damage")
+
+    def heal(self, amount: int) -> None:
+        """Přidá zdraví (maximálně do max_hp) pokud je monstrum živé."""
+        if amount < 0 or not self.is_alive():
+            raise ValueError("Heal amount cannot be negative, and monster must be alive to heal.")
+        elif self.hp + amount > self.max_hp:
+            self.hp = self.max_hp
+        else:
+            self.hp += amount   
+        #raise NotImplementedError("Monster.heal")
+
 
 @dataclass
 class World:
