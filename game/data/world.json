@@ -1,0 +1,30 @@
+{
+  "start_room": "nadvori",
+  "rooms": {
+    "nadvori": {
+      "name": "Nádvoří",
+      "description": "Prašné nádvoří obehnané zdí. Vítr honí listí mezi kameny. Na severu je vidět otevřená chodba.",
+      "exits": { "sever": "chodba" },
+      "items": [
+        { "name": "kamen", "description": "Obyčejný šedý kámen. Těžký, ale dá se zvednout." },
+        { "name": "vetev", "description": "Ulomená větev. Mohla by posloužit jako zbraň." }
+      ]
+    },
+    "chodba": {
+      "name": "Hlavní chodba",
+      "description": "Dlouhá chodba s vysokým stropem. Na konci se rýsují dveře, ze kterých táhne chlad.",
+      "exits": { "jih": "nadvori", "sever": "komora" },
+      "items": [
+        { "name": "louc", "description": "Hořící louč. Osvětluje cestu." }
+      ]
+    },
+    "komora": {
+      "name": "Komora",
+      "description": "Malá komora plná beden. V rohu stojí něco, co vypadá jako truhla.",
+      "exits": { "jih": "chodba" },
+      "items": [
+        { "name": "truhla", "description": "Zamčená truhla. Zámek je rezavý, ale pevný." }
+      ]
+    }
+  }
+}

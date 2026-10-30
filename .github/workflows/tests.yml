@@ -1,0 +1,40 @@
+name: tests
+
+# Testy běží na každý push do main a na každý pull request.
+# Větev main je chráněná: PR se nemůže sloučit, dokud tenhle workflow neprojde.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Kontrola syntaxe
+        run: python -m compileall -q game tests
+
+      - name: Unit testy
+        run: python -m unittest discover -s tests -t . -v
+
+      - name: Hra se nastartuje
+        run: printf 'rozhledni\nkonec\n' | python -m game

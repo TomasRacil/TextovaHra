@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Otázka k postupu (ne kódu)
+    url: https://github.com/TomasRacil/TextovaHra/discussions
+    about: Nevíš, jak něco udělat? Zeptej se v Discussions, ne v issue.

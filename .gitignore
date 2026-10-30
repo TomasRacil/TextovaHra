@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Testy a nástroje
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Editory a OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Lokální soubory, které se necommitují
+*.log
+save*.json
+local_*.py

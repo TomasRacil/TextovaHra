@@ -1,0 +1,13 @@
+# CODEOWNERS – kdo musí schválit změny v citlivých souborech.
+# Pozor: vynucení je zapnuté jen tehdy, když to povolí pravidlo větve.
+# I bez vynucení to slouží jako "sem nešahej bez domluvy".
+
+# Infrastruktura a pravidla projektu
+/.github/            @TomasRacil
+/ZADANI.md           @TomasRacil
+/CONTRIBUTING.md     @TomasRacil
+
+# Sdílené jádro hry – mění se jen po domluvě s projekt leadem
+/game/engine.py      @TomasRacil
+/game/registry.py    @TomasRacil
+/game/cli.py         @TomasRacil

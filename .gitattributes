@@ -1,0 +1,8 @@
+# Jednotné konce řádků napříč Windows/Linux/macOS.
+# Bez tohoto souboru vznikají "změny" jen kvůli CRLF a review je nepoužitelné.
+* text=auto eol=lf
+*.sh  text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.png binary
+*.jpg binary
