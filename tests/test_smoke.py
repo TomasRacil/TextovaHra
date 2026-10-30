@@ -68,10 +68,21 @@ class TestSkeleton(unittest.TestCase):
         self.assertTrue(self.game.finished)
 
     def test_unimplemented_command_does_not_crash(self) -> None:
-        # Player.is_alive zatím není hotová – hra to musí ustát.
-        player = self.game.player
-        with self.assertRaises(NotImplementedError):
-            player.is_alive()
+        # Příkaz, který ještě není hotový, nesmí shodit celou hru.
+        # Test si registruje vlastní dočasný příkaz, takže nezávisí na tom,
+        # co už je v engine.py implementované.
+        from game.registry import COMMANDS, command
+
+        @command("__test_nehotovo", "dočasný testovací příkaz")
+        def _boom(game, argument: str) -> str:
+            raise NotImplementedError("test")
+
+        try:
+            output = self.game.handle("__test_nehotovo")
+        finally:
+            COMMANDS.pop("__test_nehotovo", None)
+
+        self.assertIn("není hotový", output)
 
 
 class TestModel(unittest.TestCase):
