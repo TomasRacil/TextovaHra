@@ -50,26 +50,22 @@ class TestItems(unittest.TestCase):
 class TestPlayerModel(unittest.TestCase):
     """Čisté unit testy modelu – bez hry, jen třída Player."""
 
-    @unittest.skip("TODO: implementuj Player – odstraň skip, až bude hotovo")
     def test_damage_reduces_hp(self) -> None:
         player = Player()
         player.damage(30)
         self.assertEqual(player.hp, 70)
 
-    @unittest.skip("TODO: implementuj Player – odstraň skip, až bude hotovo")
     def test_hp_never_below_zero(self) -> None:
         player = Player()
         player.damage(999)
         self.assertEqual(player.hp, 0)
         self.assertFalse(player.is_alive())
 
-    @unittest.skip("TODO: implementuj Player – odstraň skip, až bude hotovo")
     def test_heal_never_above_max(self) -> None:
         player = Player(hp=90, max_hp=100)
         player.heal(50)
         self.assertEqual(player.hp, 100)
 
-    @unittest.skip("TODO: implementuj Player – odstraň skip, až bude hotovo")
     def test_inventory_is_not_shared_between_players(self) -> None:
         # Klasická chyba: mutable default argument.
         a, b = Player(), Player()
