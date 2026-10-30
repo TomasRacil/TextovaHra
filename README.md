@@ -186,8 +186,9 @@ Board a release: [`docs/PROJEKTY_A_RELEASE.md`](docs/PROJEKTY_A_RELEASE.md).
 ## Časté dotazy
 
 **Musím umět git z příkazové řádky?**
-Ne, GitHub Desktop nebo VS Code stačí. Příkazy tu jsou proto, že jsou nejrychlejší a u zkoušky
-se hodí je vidět.
+Ne, GitHub Desktop nebo VS Code stačí. Příkazy tu uvádíme proto, že jsou nejrychlejší
+a v praxi se hodí je znát. Na zkoušce je z Pythonu jen OOP (třídy) – git a GitHub jsou
+dovednost navíc, ne zkoušková látka.
 
 **Push mi hlásí `protected branch hook declined`.**
 Přesně tak to má být – nepushuj do `main`, ale do své větve a otevři PR.
