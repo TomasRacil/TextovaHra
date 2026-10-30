@@ -16,10 +16,25 @@ PROJECT="${2:-3}"
 echo "== Projekt $PROJECT vlastníka $OWNER =="
 created=0
 
+# ID projektu, pole Status a volby "Backlog" – aby nové položky neseděly bez stavu.
+PROJECT_ID="$(gh project view "$PROJECT" --owner "$OWNER" --format json --jq '.id' 2>/dev/null || true)"
+STATUS_FIELD_ID=""
+BACKLOG_ID=""
+if [ -n "$PROJECT_ID" ]; then
+  STATUS_FIELD_ID="$(gh api graphql -f query='query($p:ID!){node(id:$p){... on ProjectV2{field(name:"Status"){... on ProjectV2SingleSelectField{id}}}}}' \
+    -F p="$PROJECT_ID" --jq '.data.node.field.id' 2>/dev/null || true)"
+  BACKLOG_ID="$(gh api graphql -f query='query($p:ID!){node(id:$p){... on ProjectV2{field(name:"Status"){... on ProjectV2SingleSelectField{options{id name}}}}}}' \
+    -F p="$PROJECT_ID" --jq '.data.node.field.options[] | select(.name=="Backlog") | .id' 2>/dev/null || true)"
+fi
+
 add_item() {
-  local title="$1" body="$2"
-  gh project item-create "$PROJECT" --owner "$OWNER" --title "$title" \
-    --body "$(printf '%b' "$body")" >/dev/null
+  local title="$1" body="$2" item_id
+  item_id="$(gh project item-create "$PROJECT" --owner "$OWNER" --title "$title" \
+    --body "$(printf '%b' "$body")" --format json --jq '.id')"
+  if [ -n "$STATUS_FIELD_ID" ] && [ -n "$BACKLOG_ID" ]; then
+    gh project item-edit --project-id "$PROJECT_ID" --id "$item_id" \
+      --field-id "$STATUS_FIELD_ID" --single-select-option-id "$BACKLOG_ID" >/dev/null 2>&1 || true
+  fi
   echo "  + $title"
   created=$((created + 1))
 }
