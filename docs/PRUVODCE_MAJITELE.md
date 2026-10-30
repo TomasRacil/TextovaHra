@@ -183,7 +183,7 @@ Vytváří je `setup_repo.sh`: `typ: feat|fix|docs|test|chore`, `stav: blokován
 
 Proč: studenti vidí stav práce bez ptaní a ty vidíš frontu (`stav: ke kontrole`).
 
-### 2.8 Přístup studentů: spolupracovníci vs. forky
+### 2.8 Přístup přispěvatelů (studentů): spolupracovníci vs. forky
 
 | | Spolupracovníci (doporučeno) | Forky |
 |---|---|---|
@@ -246,7 +246,7 @@ git tag -a v0.1.0 -m "Hratelná verze 0.1"
 git push origin v0.1.0
 ```
 
-Proč to učit a jak to vysvětlit studentům: [`PROJEKTY_A_RELEASE.md`](PROJEKTY_A_RELEASE.md).
+Proč to vést u svého repozitáře a jak to vysvětlit přispěvatelům: [`PROJEKTY_A_RELEASE.md`](PROJEKTY_A_RELEASE.md).
 
 ---
 

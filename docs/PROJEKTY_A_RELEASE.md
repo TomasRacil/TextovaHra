@@ -24,12 +24,15 @@ Vztah tří věcí, které se pletou:
 Issue bez boardu je seznam, který si nikdo neprojde. Board bez issues je prázdná tabule.
 Dohromady to je jediné místo, kde je vidět celý stav projektu.
 
-## Proč to mít na hodině
+## Proč to vést u svého repozitáře
 
-- **23 lidí se neptá „co mám dělat?“** – podívají se na sloupec *Připraveno* a vezmou si, co je volné.
+- **Přispěvatelé se neptají „co mám dělat?“** – podívají se na sloupec *Připraveno*
+  a vezmou si, co je volné. Ty nemusíš rozdělovat práci ústně.
 - **Nevzniká dvojitá práce.** Kdo si položku nevzal (nepřiřadil), na ní nepracuje.
-- **Ty vidíš frontu** na review a na blokery, aniž bys obcházel počítače.
-- **Studenti vidí pokrok** – sloupec *Hotovo* roste. U 180minutové akce je to silná motivace.
+- **Vidíš frontu** na review a na blokery z jednoho místa, aniž bys obcházel počítače.
+- **Pokrok je vidět** – sloupec *Hotovo* roste. U dvouhodinové akce je to silná motivace.
+- **Board zůstane použitelný i po akci.** Když se k repu vrátíš za měsíc, nemusíš rekonstruovat
+  stav z historie commitů – stačí se podívat na sloupce.
 
 ## Co je nastavené v tomto repu
 
@@ -47,7 +50,7 @@ gh project view 3 --owner TomasRacil
 gh project item-list 3 --owner TomasRacil --format json --jq '.items[] | {title, status}'
 ```
 
-## Jak board používají studenti
+## Jak board používají přispěvatelé (studenti)
 
 1. Podívají se do **Backlogu** a vyberou si položku (nebo si založí vlastní issue).
 2. **Převedou ji na issue** (v UI: `...` → *Convert to issue*) a **přiřadí si ji** (Assignees).
@@ -89,8 +92,9 @@ získají číslo, štítky a možnost diskuse v komentářích.
 2. **GitHub Release** – stránka s poznámkami k verzi a **přiloženými soubory** (u nás wheel
    a zdrojový balíček). Dá se stáhnout bez znalosti gitu.
 
-Proč to učit: „hotovo“ musí mít důkaz. Student, který řekne „mám to hotové“, ale neumí říct
-*co* je hotové a *odkud* si to stáhnu, nemá hotovo nic.
+Proč to vést u svého repozitáře: **„hotovo“ musí mít důkaz.** Kdokoli řekne „mám to hotové“,
+ale neumí říct *co* je hotové a *odkud* si to stáhne, nemá hotovo nic. Release je odpověď
+na obě otázky – číslo verze a soubor ke stažení.
 
 ## Sémantické verzování (jednoduchá verze)
 
