@@ -18,4 +18,4 @@ def jdi_command(game, argument: str) -> str:
     game.player.room_key = game.room.exits[argument]
     
     # Vrátíme rovnou popis nové místnosti (využijeme existující příkaz 'rozhledni')
-    return look_command(game, "")
+    return game.handle("rozhledni")
