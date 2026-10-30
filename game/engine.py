@@ -64,6 +64,10 @@ class Player:
     inventory: list[Item] = field(default_factory=list)
     hp: int = 100
     max_hp: int = 100
+    dmg: int = 10
+
+    def setdmg(self, val):
+        self.dmg += val
 
     def is_alive(self) -> bool:
         """True, dokud hráč nezemřel."""
