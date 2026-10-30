@@ -13,17 +13,63 @@
     "chodba": {
       "name": "Hlavní chodba",
       "description": "Dlouhá chodba s vysokým stropem. Na konci se rýsují dveře, ze kterých táhne chlad.",
-      "exits": { "jih": "nadvori", "sever": "komora" },
+      "exits": { "jih": "nadvori", "sever": "zelezna_mistnost", "zapad": "drevena_mistnost", "vychod": "diamantova_mistnost" },
       "items": [
         { "name": "louc", "description": "Hořící louč. Osvětluje cestu." }
       ]
     },
-    "komora": {
-      "name": "Komora",
+    "drevena_mistnost": {
+      "name": "Dřevěná místnost",
       "description": "Malá komora plná beden. V rohu stojí něco, co vypadá jako truhla.",
-      "exits": { "jih": "chodba" },
+      "exits": { "zapad": "drevena_komora", "vychod": "chodba" },
+      "monstrum": [
+        { "name": "Dubový škraboš", "hp": "20", "max_hp": "20", "dmg": "5", "description": "Vrzající postava spletená ze starých trámů, suchých větví a lišejníku." }
+      ],
+      "is_cleared": false
+    },
+    "drevena_komora": {
+      "name": "Dřevěná komora",
+      "description": "Malý stísněný přístěnek plný pilin a hoblin. V rohu pod pavučinami stojí okovaná dřevěná truhla.",
+      "exits": { "vychod": "drevena_mistnost" },
       "items": [
-        { "name": "truhla", "description": "Zamčená truhla. Zámek je rezavý, ale pevný." }
+        { "name": "Dřevěný meč", "description": "Jednoduchý meč z tvrdého dřeva.", "hp": 0, "dmg": 15 },
+        { "name": "Kožená vesta", "description": "Pevná kožená vesta, která ztlumí několik ran.", "hp": 20, "dmg": 0 }
+      ]
+    },
+    "zelezna_mistnost": {
+      "name": "Železná místnost",
+      "description": "Chladná místnost plná kovového prachu a těžkých řetězů.",
+      "exits": { "sever": "zelezna_komora" , "jih": "chodba" },
+      "monstrum": [
+        { "name": "Magický rytíř", "hp": "45", "max_hp": "45", "dmg": "10", "description": "Mohutné plátové brnění držící pohromadě jen temnou magií." }
+      ],
+      "is_cleared": false
+    },
+    "zelezna_komora": {
+      "name": "Železná komora",
+      "description": "Tmavá komora s masivní kovadlinou uprostřed. Za kovadlinou spočívá těžká plátovaná truhla se západkovým mechanismem.",
+      "exits": { "jih": "zelezna_mistnost" },
+      "items": [
+        { "name": "Železný palcát", "description": "Těžká zbraň schopná drtit nepřátele.", "hp": 0, "dmg": 30 },
+        { "name": "Plátový krunýř", "description": "Kvalitní ocelový krunýř, co vydrží tvrdé zásahy.", "hp": 50, "dmg": 0 }
+      ]
+    },
+    "diamantova_mistnost": {
+      "name": "Diamantová místnost",
+      "description": "Vysoká temná místnost prorostlá blyštivými krystaly.",
+      "exits": { "vychod": "diamantova_komora" , "zapad": "chodba" },
+      "monstrum": [
+        { "name": "Krystalový pavouk", "hp": "75", "max_hp": "75", "dmg": "20", "description": "Monstrózní členovec s tělem z ostrých diamantových krystalů." }
+      ],
+      "is_cleared": false
+    },
+    "diamantova_komora": {
+      "name": "Diamantová komora",
+      "description": "Izolovaná svatyně vytesaná z čistého čediče. Uprostřed na vyvýšeném podstavci trůní zdobená schrána posázená zářícími drahokamy.",
+      "exits": { "zapad": "diamantova_mistnost" },
+      "items": [
+        { "name": "Diamantová čepel", "description": "Extrémně ostrá zbraň z jednoho kusu diamantu.", "hp": 0, "dmg": 50 },
+        { "name": "Diamantové brnění", "description": "Blyštivá zbroj poskytující maximální ochranu.", "hp": 100, "dmg": 0 }
       ]
     }
   }
